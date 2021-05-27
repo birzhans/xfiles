@@ -1,3 +1,12 @@
 <h1>Profile Page</h1>
 
 <p><%= current_user.email %></p>
+<p>Role: <%= current_user.role %></p>
+<div id="locations">
+  <p>Your locations:</p>
+  <ul>
+    <%= render current_user.locations %>
+  </ul>
+</div>
+
+<%= link_to 'Add location', new_location_path, class: 'btn btn-primary' %>
