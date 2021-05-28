@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class AddDeviseToHelpers < ActiveRecord::Migration[6.1]
+class AddDeviseToAides < ActiveRecord::Migration[6.1]
   def self.up
-    change_table :helpers do |t|
+    change_table :aides do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -37,10 +37,10 @@ class AddDeviseToHelpers < ActiveRecord::Migration[6.1]
       # t.timestamps null: false
     end
 
-    add_index :helpers, :email,                unique: true
-    add_index :helpers, :reset_password_token, unique: true
-    # add_index :helpers, :confirmation_token,   unique: true
-    # add_index :helpers, :unlock_token,         unique: true
+    add_index :aides, :email,                unique: true
+    add_index :aides, :reset_password_token, unique: true
+    # add_index :aides, :confirmation_token,   unique: true
+    # add_index :aides, :unlock_token,         unique: true
   end
 
   def self.down

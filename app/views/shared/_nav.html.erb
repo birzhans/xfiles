@@ -10,7 +10,7 @@
 
           <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
             <li>
-              <a href="/helpers" class="nav-link text-white">
+              <a href="/aides" class="nav-link text-white">
                 <div class="">
                   <%= fa_stacked_icon "dashboard", base: "square-o" %>
                 </div>
@@ -55,9 +55,9 @@
           <% if client_signed_in? %>
             <%= link_to 'Profile', profile_clients_path, class: 'btn btn-primary' %>
             <%= link_to 'Logout', destroy_client_session_path, method: :delete, class: 'btn btn-light text-dark me-2' %>
-          <% elsif helper_signed_in? %>
-            <%= link_to 'Profile', profile_helpers_path, class: 'btn btn-primary' %>
-            <%= link_to 'Logout', destroy_helper_session_path, method: :delete, class: 'btn btn-light text-dark me-2' %>
+          <% elsif aide_signed_in? %>
+            <%= link_to 'Profile', profile_aides_path, class: 'btn btn-primary' %>
+            <%= link_to 'Logout', destroy_aide_session_path, method: :delete, class: 'btn btn-light text-dark me-2' %>
           <% else %>
             <%= link_to 'Login', new_client_session_path, class: 'btn btn-light text-dark me-2' %>
             <%= link_to 'Sign-up', new_client_registration_path, class: 'btn btn-primary' %>

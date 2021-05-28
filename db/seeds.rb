@@ -5,3 +5,42 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+5.times do |i|
+  client = Client.create(
+    name: "client #{i}",
+    email: "c#{i}@a.a",
+    password: "c#{i}@a.ac#{i}@a.a",
+    password_confirmation: "c#{i}@a.ac#{i}@a.a",
+  )
+end
+
+5.times do |i|
+  client = Aide.create(
+    name: "aide #{i}",
+    email: "a#{i}@a.a",
+    password: "a#{i}@a.ac#{i}@a.a",
+    password_confirmation: "a#{i}@a.ac#{i}@a.a",
+  )
+end
+
+cities = ['Astana', 'Almaty', 'Kokshetau', 'Petropavlovsk', 'Pavlodar', 'Kostanay', 'Oral']
+
+cities.each do |city|
+  City.create(name: city)
+end
+
+def random_city_id
+  City.pluck(:id).shuffle.first
+end
+
+Client.all.each do |client|
+  client.locations.create(city_id: random_city_id, address: rand(36**8).to_s(36))
+  client.locations.create(city_id: random_city_id, address: rand(36**8).to_s(36))
+end
+
+Aide.all.each do |aide|
+  aide.locations.create(city_id: random_city_id, address: rand(36**8).to_s(36))
+  aide.locations.create(city_id: random_city_id, address: rand(36**8).to_s(36))
+end

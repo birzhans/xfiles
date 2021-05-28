@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-
   root 'pages#home'
 
-  devise_for :helpers, controllers: { registrations: 'helpers/registrations' }
+  devise_for :aides, controllers: { registrations: 'aides/registrations' }
   devise_for :clients, controllers: { registrations: 'clients/registrations' }
 
   resources :locations
@@ -13,7 +12,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :helpers do
+  resources :aides do
     collection do
       get 'profile'
     end

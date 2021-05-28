@@ -2,3 +2,6 @@
 
 <h4>Name: <%= current_client.email %></h4>
 <h4>Email: <%= current_client.name %></h4>
+
+<%= render current_client.locations %>
+<%= link_to 'Add location', new_location_path %>

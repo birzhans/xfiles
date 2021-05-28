@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_28_092910) do
+ActiveRecord::Schema.define(version: 2021_05_28_132643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "aides", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "phone"
+    t.string "link"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_aides_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_aides_on_reset_password_token", unique: true
+  end
 
   create_table "cities", force: :cascade do |t|
     t.string "name", null: false
@@ -35,21 +50,6 @@ ActiveRecord::Schema.define(version: 2021_05_28_092910) do
     t.datetime "remember_created_at"
     t.index ["email"], name: "index_clients_on_email", unique: true
     t.index ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true
-  end
-
-  create_table "helpers", force: :cascade do |t|
-    t.string "name"
-    t.string "phone"
-    t.string "link"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.index ["email"], name: "index_helpers_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_helpers_on_reset_password_token", unique: true
   end
 
   create_table "locations", force: :cascade do |t|

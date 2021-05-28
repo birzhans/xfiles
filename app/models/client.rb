@@ -6,4 +6,8 @@ class Client < ApplicationRecord
 
   has_many :locations, as: :userable, dependent: :destroy
   has_many :cities, through: :locations
+
+  def profile_path
+    '/clients/profile'
+  end
 end
