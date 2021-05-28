@@ -54,29 +54,14 @@ ActiveRecord::Schema.define(version: 2021_05_28_092910) do
 
   create_table "locations", force: :cascade do |t|
     t.string "address"
-    t.bigint "user_id", null: false
+    t.string "userable_type", null: false
+    t.bigint "userable_id", null: false
     t.bigint "city_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["city_id"], name: "index_locations_on_city_id"
-    t.index ["user_id"], name: "index_locations_on_user_id"
+    t.index ["userable_type", "userable_id"], name: "index_locations_on_userable"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "link"
-    t.string "bio"
-    t.string "role"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
-
+  add_foreign_key "locations", "cities"
 end
