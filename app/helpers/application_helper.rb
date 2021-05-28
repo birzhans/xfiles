@@ -5,6 +5,6 @@ module ApplicationHelper
   }
 
   def message_class(key)
-    NOTICE_KEYS[key.to_sym]
+    NOTICE_KEYS[key.to_sym] + " text-center"
   end
 end

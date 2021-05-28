@@ -24,16 +24,6 @@
         <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', required: true %>
       </div>
 
-      <div class="form-group mt-2">
-        <h3>I want to:</h3>
-
-        <input type="radio" id="client" name="user[role]" value="client" checked>
-        <label for="client">Request help</label>
-        |
-        <input type="radio" id="helper" name="user[role]" value="helper">
-        <label for="helper">Work as helper</label>
-      </div>
-
       <div class="form-group">
         <%= f.submit "Sign up", class: "m-2 btn btn-primary btn-block btn-lg" %>
       </div>
