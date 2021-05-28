@@ -12,4 +12,8 @@ class Aide < ApplicationRecord
  def profile_path
    '/aides/profile'
  end
+
+ def self.get_by_city(city_id)
+   Aide.joins(:cities).where('cities.id = ?', city_id)
+ end
 end

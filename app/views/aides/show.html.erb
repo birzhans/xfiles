@@ -1,5 +1,7 @@
 <%= link_to 'Back', aides_path %>
 <h1>Aide show page</h1>
 <h3>name: <%= @aide.name %></h3>
+<h3>Link: <%= @aide.link %></h3>
+<h3>Phone: <%= @aide.phone %></h3>
 <h3>Locations:</h3>
 <%= render @aide.locations %>

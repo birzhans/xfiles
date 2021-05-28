@@ -17,9 +17,11 @@
 end
 
 5.times do |i|
-  client = Aide.create(
+  aide = Aide.create(
     name: "aide #{i}",
     email: "a#{i}@a.a",
+    link: rand(36**8).to_s(36),
+    phone: rand(10 ** 10),
     password: "a#{i}@a.ac#{i}@a.a",
     password_confirmation: "a#{i}@a.ac#{i}@a.a",
   )
