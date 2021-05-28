@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :clients do
     collection do
       get 'profile'
+      get 'starred'
+      post 'star_aide'
     end
   end
 

@@ -1,6 +1,16 @@
-<div class="shadow p-3 mb-3">
-  <p>
+<div class="row m-1 shadow p-3 mb-3">
+  <div class="col-8">
     <%= link_to aide.name, aide %>
     <%= render 'locations/cities', cities: aide.cities %>
-  </p>
+  </div>
+
+  <div class='col-4 float-right'>
+    <%= link_to star_aide_clients_path(aide_id: aide.id),
+                class: "star-icon",
+                data: { id: aide.id  },
+                remote: true,
+                method: :post do %>
+      <i class="<%= heart_icon_class(aide) %>" id="star-<%= aide.id %>"></i>
+    <% end %>
+  </div>
 </div>

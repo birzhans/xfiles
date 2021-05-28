@@ -9,6 +9,9 @@ class Aide < ApplicationRecord
  has_many :locations, as: :userable, dependent: :destroy
  has_many :cities, through: :locations
 
+ has_many :starred_aides
+ has_many :clients, through: :starred_aides
+
  def profile_path
    '/aides/profile'
  end

@@ -8,40 +8,10 @@
             </h3>
           </a>
 
-          <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
-            <li>
-              <a href="/aides" class="nav-link text-white">
-                <div class="">
-                  <%= fa_stacked_icon "dashboard", base: "square-o" %>
-                </div>
-                Helpers
-              </a>
-            </li>
-            <li>
-              <a href="#" class="nav-link text-white">
-                <div class="">
-                  <%= fa_stacked_icon "user", base: "square-o" %>
-                </div>
-                Orders
-              </a>
-            </li>
-            <li>
-              <a href="#" class="nav-link text-white">
-                <div class="">
-                  <%= fa_stacked_icon "bell", base: "square-o" %>
-                </div>
-                Products
-              </a>
-            </li>
-            <li>
-              <a href="#" class="nav-link text-white">
-                <div class="">
-                  <%= fa_stacked_icon "bullseye", base: "square-o" %>
-                </div>
-                Customers
-              </a>
-            </li>
-          </ul>
+          <% if client_signed_in? %>
+            <%= render 'shared/nav_client_links' %>
+          <% end %>
+
         </div>
       </div>
     </div>
