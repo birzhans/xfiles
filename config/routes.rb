@@ -8,5 +8,15 @@ Rails.application.routes.draw do
 
   resources :locations
 
-  get 'profile', to: 'profile#show'
+  resources :clients do
+    collection do
+      get 'profile'
+    end
+  end
+
+  resources :helpers do
+    collection do
+      get 'profile'
+    end
+  end
 end
