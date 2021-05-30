@@ -13,6 +13,8 @@ class Aide < ApplicationRecord
  has_many :starred_aides
  has_many :clients, through: :starred_aides
 
+ has_many :messages, as: :userable
+
  def profile_path
    '/aides/profile'
  end
