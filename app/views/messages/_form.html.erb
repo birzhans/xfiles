@@ -1,0 +1,13 @@
+<%= form_with model: message, class: 'form-inline', id: 'new-message' do |f| %>
+  <%= render "shared/errors", resource: message %>
+  <%= f.hidden_field :room_id, value: room.id %>
+  <div class="row">
+    <div class="col-9">
+      <%= f.text_field :content, placeholder: 'Type...', required: true, class: 'form-control' %>
+    </div>
+
+    <div class="col-3 mb-4">
+      <%= f.submit 'Send', class: 'btn btn-primary', data: { disable_with: false } %>
+    </div>
+  </div>
+<% end %>

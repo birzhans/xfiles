@@ -1,0 +1,8 @@
+<% if @current_user.class.name.eql?('Client') %>
+  <%= render 'client_rooms_body', rooms: @rooms, room: @room %>
+<% else %>
+  <%= render 'aide_rooms_body', rooms: @rooms, room: @room %>
+<% end  %>
+
+<div id="room_id" data_room_id="<%= @room.try(:id) %>"></div>
+<div id="user_id" data_user_id="<%= @current_user.id %>"></div>

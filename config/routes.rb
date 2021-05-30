@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   resources :locations
 
+  resources :rooms
+  resources :messages
+
   resources :clients do
     collection do
       get 'profile'

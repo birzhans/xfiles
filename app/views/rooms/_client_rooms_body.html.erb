@@ -1,0 +1,34 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3">
+      <% rooms.each do |room| %>
+        <%= link_to room do %>
+          <div class="card mb-2">
+            <div class="card-body">
+              <%= room.aide.username %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="col-9">
+      <% if room.present? %>
+        <div class="chat-room">
+          <h2>Messages with
+            <span class="text-primary"><%= link_to room.aide.username, room.aide %>
+            </span>
+          </h2>
+          <div id="messages">
+            <%= render room.messages %>
+          </div>
+          <div class="chat-box">
+            <%= render 'messages/form',
+                       message: Message.new,
+                       room: room %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

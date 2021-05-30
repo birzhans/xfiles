@@ -1,4 +1,4 @@
-$(document).ready(function(){
+document.addEventListener("turbolinks:load", () => {
   $(".star-icon").on('click', function() {
 
     var id = $(this).attr("data-id");
