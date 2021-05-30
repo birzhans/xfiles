@@ -79,9 +79,13 @@ ActiveRecord::Schema.define(version: 2021_05_30_071512) do
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.string "name", null: false
+    t.bigint "aide_id", null: false
+    t.bigint "client_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["aide_id", "client_id"], name: "index_rooms_on_aide_id_and_client_id", unique: true
+    t.index ["aide_id"], name: "index_rooms_on_aide_id"
+    t.index ["client_id"], name: "index_rooms_on_client_id"
   end
 
   create_table "starred_aides", force: :cascade do |t|

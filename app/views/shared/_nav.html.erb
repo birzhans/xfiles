@@ -10,6 +10,8 @@
 
           <% if client_signed_in? %>
             <%= render 'shared/nav_client_links' %>
+          <% elsif aide_signed_in?  %>
+            <%= render 'shared/nav_aide_links' %>
           <% end %>
 
         </div>

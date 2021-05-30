@@ -1,37 +1,8 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-3">
-      <%= render 'form', room: Room.new %>
-      <hr>
-
-      <% @rooms.each do |room| %>
-        <%= link_to room do %>
-          <div class="card mb-2">
-            <div class="card-body">
-              <%= room.name %>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-
-    <div class="col-9">
-      <% if @room.present? %>
-        <div class="chat-room">
-          <h2><%= @room.name %></h2>
-          <div id="messages">
-            <%= render @room.messages %>
-          </div>
-          <div class="chat-box">
-            <%= render 'messages/form',
-                       message: Message.new,
-                       room: @room %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
+<% if @current_user.class.name.eql?('Client') %>
+  <%= render 'client_rooms_body', rooms: @rooms, room: @room %>
+<% else %>
+  <%= render 'aide_rooms_body', rooms: @rooms, room: @room %>
+<% end  %>
 
 <div id="room_id" data_room_id="<%= @room.try(:id) %>"></div>
 <div id="user_id" data_user_id="<%= @current_user.id %>"></div>

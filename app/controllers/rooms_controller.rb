@@ -11,8 +11,8 @@ class RoomsController < ApplicationController
   end
 
   def create
-    @room = Room.create(room_params)
-    redirect_to @room, notice: 'Room was successfuly created'
+    @room = Room.find_or_create_by(aide_id: params[:aide_id], client_id: current_client.id)
+    redirect_to @room
   end
 
   def destroy
@@ -32,7 +32,7 @@ class RoomsController < ApplicationController
   end
 
   def set_rooms
-    @rooms = Room.all
+    @rooms = @current_user.rooms
   end
 
   def room_params

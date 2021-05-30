@@ -1,7 +1,9 @@
-
+a {
+  text-decoration: none;
+}
 .chat-room {
   overflow-y: scroll;
-  
+
   #messages {
     height: 100%;
     overflow-y: scroll;

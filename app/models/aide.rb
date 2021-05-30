@@ -15,6 +15,8 @@ class Aide < ApplicationRecord
 
  has_many :messages, as: :userable
 
+ has_many :rooms
+
  def profile_path
    '/aides/profile'
  end

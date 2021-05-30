@@ -1,5 +1,6 @@
 <%= link_to 'Back', aides_path %>
-<h1>Aide show page</h1>
+<p>Aide show page</p>
+<%= link_to 'Chat', rooms_path(aide_id: @aide.id), method: :post, class: 'btn btn-primary' %>
 <h3>name: <%= @aide.name %></h3>
 <h3>username: <%= @aide.username %></h3>
 <h3>Link: <%= @aide.link %></h3>
