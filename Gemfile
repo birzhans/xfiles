@@ -22,6 +22,7 @@ gem 'devise'
 gem 'devise-bootstrapped'
 gem 'font-awesome-rails'
 gem 'pundit'
+gem 'redis'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

@@ -10,6 +10,7 @@
 5.times do |i|
   client = Client.create(
     name: "client #{i}",
+    username: "client_#{i}",
     email: "c#{i}@a.a",
     password: "c#{i}@a.ac#{i}@a.a",
     password_confirmation: "c#{i}@a.ac#{i}@a.a",
@@ -19,6 +20,7 @@ end
 5.times do |i|
   aide = Aide.create(
     name: "aide #{i}",
+    username: "aide_#{i}",
     email: "a#{i}@a.a",
     link: rand(36**8).to_s(36),
     phone: rand(10 ** 10),

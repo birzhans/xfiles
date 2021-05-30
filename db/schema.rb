@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_28_162513) do
+ActiveRecord::Schema.define(version: 2021_05_30_070329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,8 +26,10 @@ ActiveRecord::Schema.define(version: 2021_05_28_162513) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "username", null: false
     t.index ["email"], name: "index_aides_on_email", unique: true
     t.index ["reset_password_token"], name: "index_aides_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_aides_on_username", unique: true
   end
 
   create_table "cities", force: :cascade do |t|
@@ -48,8 +50,10 @@ ActiveRecord::Schema.define(version: 2021_05_28_162513) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "username", null: false
     t.index ["email"], name: "index_clients_on_email", unique: true
     t.index ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_clients_on_username", unique: true
   end
 
   create_table "locations", force: :cascade do |t|
@@ -61,6 +65,12 @@ ActiveRecord::Schema.define(version: 2021_05_28_162513) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["city_id"], name: "index_locations_on_city_id"
     t.index ["userable_type", "userable_id"], name: "index_locations_on_userable"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "starred_aides", force: :cascade do |t|

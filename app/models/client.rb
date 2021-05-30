@@ -3,6 +3,7 @@ class Client < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, presence: true
+  validates :username, presence: true, uniqueness: true
 
   has_many :locations, as: :userable, dependent: :destroy
   has_many :cities, through: :locations
