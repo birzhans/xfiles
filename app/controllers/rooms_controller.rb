@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :authenticate!
   before_action :set_room, only: [:show, :destroy]
   before_action :set_rooms, only: [:index, :show]
 
@@ -20,6 +21,11 @@ class RoomsController < ApplicationController
   end
 
   private
+
+  def authenticate!
+     :authenticate_client! || :authenticate_aide!
+     @current_user = client_signed_in? ? current_client : current_aide
+  end
 
   def set_room
     @room = Room.find(params[:id])

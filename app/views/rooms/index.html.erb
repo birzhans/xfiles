@@ -16,25 +16,22 @@
     </div>
 
     <div class="col-9">
-      <% if @room.present?  %>
+      <% if @room.present? %>
         <div class="chat-room">
           <h2><%= @room.name %></h2>
-          <% @room.messages.each do |message| %>
-            <div class="message mb-2">
-              <div class="<%= message_content_class(message) %>">
-                <%= message.content %>
-              </div>
-              <div class="author">
-                <%= message.userable.username %>
-              </div>
-            </div>
-            <br>
-          <% end %>
+          <div id="messages">
+            <%= render @room.messages %>
+          </div>
           <div class="chat-box">
-            <%= render 'messages/form', message: Message.new, room: @room %>
+            <%= render 'messages/form',
+                       message: Message.new,
+                       room: @room %>
           </div>
         </div>
-      <% end  %>
+      <% end %>
     </div>
   </div>
 </div>
+
+<div id="room_id" data_room_id="<%= @room.try(:id) %>"></div>
+<div id="user_id" data_user_id="<%= @current_user.id %>"></div>

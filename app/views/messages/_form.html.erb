@@ -1,4 +1,4 @@
-<%= form_with model: message, class: 'form-inline' do |f| %>
+<%= form_with model: message, class: 'form-inline', id: 'new-message' do |f| %>
   <%= render "shared/errors", resource: message %>
   <%= f.hidden_field :room_id, value: room.id %>
   <div class="row">
@@ -7,7 +7,7 @@
     </div>
 
     <div class="col-3 mb-4">
-      <%= f.submit 'Send', class: 'btn btn-primary' %>
+      <%= f.submit 'Send', class: 'btn btn-primary', data: { disable_with: false } %>
     </div>
   </div>
 <% end %>

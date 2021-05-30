@@ -14,11 +14,11 @@ module ApplicationHelper
   end
 
   def message_content_class(message)
-    "content" + " me" if message.userable == current_user
+    "message mb-2" + (message.userable == get_user ? " me" : "")
   end
 
 
-  def current_user
+  def get_user
     client_signed_in? ? current_client : current_aide
   end
 end

@@ -3,7 +3,8 @@ class MessagesController < ApplicationController
 
   def create
     message = @current_user.messages.create(message_params)
-    redirect_to message.room
+
+    SendMessageJob.perform_later(message)
   end
 
   private
