@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_30_071512) do
+ActiveRecord::Schema.define(version: 2021_05_31_001308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "aide_categories", force: :cascade do |t|
+    t.bigint "aide_id", null: false
+    t.bigint "category_id", null: false
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["aide_id"], name: "index_aide_categories_on_aide_id"
+    t.index ["category_id"], name: "index_aide_categories_on_category_id"
+  end
 
   create_table "aides", force: :cascade do |t|
     t.string "name", null: false
@@ -30,6 +40,13 @@ ActiveRecord::Schema.define(version: 2021_05_30_071512) do
     t.index ["email"], name: "index_aides_on_email", unique: true
     t.index ["reset_password_token"], name: "index_aides_on_reset_password_token", unique: true
     t.index ["username"], name: "index_aides_on_username", unique: true
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_categories_on_name", unique: true
   end
 
   create_table "cities", force: :cascade do |t|

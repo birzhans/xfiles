@@ -1,7 +1,15 @@
 <div class="row m-1 shadow p-3 mb-3">
   <div class="col-8">
     <%= link_to aide.name, aide %>
-    <%= render 'locations/cities', cities: aide.cities %>
+    <div class="m-2">
+      Cities:
+      <%= render 'locations/cities', cities: aide.cities %>
+    </div>
+
+    <div class="m-2">
+      Categories:
+      <%= render aide.categories.uniq %>
+    </div>
   </div>
 
   <div class='col-4 float-right'>

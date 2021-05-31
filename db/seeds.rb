@@ -39,12 +39,29 @@ def random_city_id
   City.pluck(:id).shuffle.first
 end
 
+def random_category_id
+  Category.pluck(:id).shuffle.first
+end
+
 Client.all.each do |client|
-  client.locations.create(city_id: random_city_id, address: rand(36**8).to_s(36))
-  client.locations.create(city_id: random_city_id, address: rand(36**8).to_s(36))
+  2.times do
+    client.locations.create(city_id: random_city_id, address: rand(36**8).to_s(36))
+  end
 end
 
 Aide.all.each do |aide|
-  aide.locations.create(city_id: random_city_id, address: rand(36**8).to_s(36))
-  aide.locations.create(city_id: random_city_id, address: rand(36**8).to_s(36))
+  2.times do
+    aide.locations.create(city_id: random_city_id, address: rand(36**8).to_s(36))
+  end
+end
+
+categories = ['Cars', 'General', 'Textiles', 'Furniture', 'Clothes', 'Build']
+categories.each do |category|
+  Category.create(name: category)
+end
+
+Aide.all.each do |aide|
+  2.times do
+    AideCategory.create(aide_id: aide.id, category_id: random_category_id, description: rand(36**8).to_s(36))    
+  end
 end

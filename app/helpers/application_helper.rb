@@ -17,8 +17,19 @@ module ApplicationHelper
     "message mb-2" + (message.userable == get_user ? " me" : "")
   end
 
+  def location_name(location)
+    location.city.name + ',' + location.address || '(No Address)'
+  end
+
+  def category_name(aide_category)
+    aide_category.category.name + ',' + aide_category.description || '(No description)'
+  end
 
   def get_user
     client_signed_in? ? current_client : current_aide
+  end
+
+  def nice_param?(id)
+    id != nil && id != 'All'
   end
 end
