@@ -1,5 +1,5 @@
 <p>
   <%= location.city.name + ',' + location.address || '(No Address)' %>
-  <%= link_to 'Edit', edit_location_path(location) %>
-  <%= link_to 'Delete', location_path(location), method: :delete %>
+  <%= link_to 'Edit', edit_location_path(location) if @current_user == location.userable %>
+  <%= link_to 'Delete', location_path(location), method: :delete if @current_user == location.userable %>
 </p>

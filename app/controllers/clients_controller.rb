@@ -21,5 +21,6 @@ class ClientsController < ApplicationController
 
   def authorize_client
     redirect_to(root_path, alert: 'Not allowed to view this page') unless client_signed_in?
+    @current_user = current_client
   end
 end

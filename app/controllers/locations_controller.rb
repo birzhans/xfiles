@@ -1,6 +1,7 @@
 class LocationsController < ApplicationController
   before_action :authenticate!
   before_action :set_location, only: [:edit, :update, :destroy]
+  before_action :authorize!, only: [:edit, :update, destroy]
 
   def new
     @location = Location.new
@@ -38,6 +39,10 @@ class LocationsController < ApplicationController
   def authenticate!
      :authenticate_client! || :authenticate_aide!
      @current_user = client_signed_in? ? current_client : current_aide
+  end
+
+  def authorize!
+    redirect_to @location.userable if @current_user != @location.userable
   end
 
   def set_location
