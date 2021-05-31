@@ -1,0 +1,7 @@
+<p>
+  <%= link_to category_name(aide_category), aides_path(category_id: aide_category.id) %>
+  <% if @current_user == aide_category.aide %>
+    <%= link_to 'Edit', edit_aide_category_path(aide_category), class: 'btn btn-info'  %>
+    <%= link_to 'Delete', aide_category_path(aide_category), class: 'btn btn-info', method: :delete %>
+  <% end %>
+</p>

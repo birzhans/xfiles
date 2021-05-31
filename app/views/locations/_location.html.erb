@@ -1,5 +1,5 @@
 <p>
   <%= link_to location_name(location), aides_path(city_id: location.city.id) %>
-  <%= link_to 'Edit', edit_location_path(location) if @current_user == location.userable %>
-  <%= link_to 'Delete', location_path(location), method: :delete if @current_user == location.userable %>
+    <%= link_to('Edit', edit_location_path(location), class: 'btn btn-info') if @current_user == location.userable %>
+    <%= link_to('Delete', location_path(location), class: 'btn btn-info', method: :delete) if @current_user == location.userable %>
 </p>

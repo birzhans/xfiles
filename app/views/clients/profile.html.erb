@@ -1,8 +1,37 @@
-<h1>Client profile path</h1>
+<h1 class="m-3">Client profile path</h1>
 
-<h4>Name: <%= current_client.email %></h4>
-<h4>Username: <%= current_client.username %></h4>
-<h4>Email: <%= current_client.name %></h4>
+<div class="row m-2">
+  <div class="col-4">
+    <h6>name: <%= current_client.name %></h6>
+  </div>
 
-<%= render current_client.locations %>
-<%= link_to 'Add location', new_location_path %>
+  <div class="col-4">
+    <h6>username: <%= current_client.username %></h6>
+  </div>
+
+  <div class="col-4">
+    <h6>Link: <%= current_client.link %></h6>
+  </div>
+</div><hr>
+
+<div class="row m-2">
+  <div class="col-4">
+    <h6>Phone: <%= current_client.phone %></h6>
+  </div>
+
+  <div class="col-4">
+    <h6>Phone: <%= current_client.phone %></h6>
+  </div>
+
+  <div class="col-4">
+    <h6>Phone: <%= current_client.phone %></h6>
+  </div>
+</div><hr>
+
+<div class="row m-2">
+  <div class="col-6">
+    <h3>Locations:</h3>
+    <%= render current_client.locations %>
+    <%= link_to 'Add location', new_location_path, class: 'btn btn-primary' %>
+  </div>
+</div>

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_for :clients, controllers: { registrations: 'clients/registrations' }
 
   resources :locations
+  resources :aide_categories
 
   resources :rooms
   resources :messages

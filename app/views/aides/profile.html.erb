@@ -1,8 +1,43 @@
-<h1>Aide profile path</h1>
+<h1 class="m-3">Aide profile path</h1>
 
-<h4>Name: <%= current_aide.email %></h4>
-<h4>Username: <%= current_aide.username %></h4>
-<h4>Email: <%= current_aide.name %></h4>
-<h3>Locations:</h3>
-<%= render current_aide.locations %>
-<%= link_to 'Add location', new_location_path %>
+<div class="row m-2">
+  <div class="col-4">
+    <h6>name: <%= current_aide.name %></h6>
+  </div>
+
+  <div class="col-4">
+    <h6>username: <%= current_aide.username %></h6>
+  </div>
+
+  <div class="col-4">
+    <h6>Link: <%= current_aide.link %></h6>
+  </div>
+</div><hr>
+
+<div class="row m-2">
+  <div class="col-4">
+    <h6>Phone: <%= current_aide.phone %></h6>
+  </div>
+
+  <div class="col-4">
+    <h6>Phone: <%= current_aide.phone %></h6>
+  </div>
+
+  <div class="col-4">
+    <h6>Phone: <%= current_aide.phone %></h6>
+  </div>
+</div><hr>
+
+<div class="row m-2">
+  <div class="col-6">
+    <h3>Locations:</h3>
+    <%= render current_aide.locations %>
+    <%= link_to 'Add location', new_location_path, class: 'btn btn-primary' %>
+  </div>
+
+  <div class="col-6">
+    <h3>Categories:</h3>
+    <%= render current_aide.aide_categories %>
+    <%= link_to 'Add category', new_aide_category_path, class: 'btn btn-primary' %>
+  </div>
+</div>
