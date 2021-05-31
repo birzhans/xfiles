@@ -1,7 +1,7 @@
 class LocationsController < ApplicationController
   before_action :authenticate!
   before_action :set_location, only: [:edit, :update, :destroy]
-  before_action :authorize!, only: [:edit, :update, destroy]
+  before_action :authorize!, only: [:edit, :update, :destroy]
 
   def new
     @location = Location.new
