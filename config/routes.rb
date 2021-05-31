@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'pages#home'
+  root 'aides#index'
 
   devise_for :aides, controllers: { registrations: 'aides/registrations' }
   devise_for :clients, controllers: { registrations: 'clients/registrations' }
