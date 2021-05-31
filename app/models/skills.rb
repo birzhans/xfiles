@@ -1,4 +1,4 @@
-class AideCategory < ApplicationRecord
+class Skills < ApplicationRecord
   belongs_to :aide
   belongs_to :category
 end

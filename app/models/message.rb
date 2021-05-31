@@ -1,6 +1,6 @@
 class Message < ApplicationRecord
-  belongs_to :room
-  belongs_to :userable, polymorphic: true
+  belongs_to :conversation
+  belongs_to :user
 
-  validates :content, presence: true
+  validates :body, presence: true
 end
