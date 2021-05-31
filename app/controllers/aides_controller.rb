@@ -1,5 +1,5 @@
 class AidesController < ApplicationController
-  before_action :authorize_aide
+  before_action :authorize_aide, only: [:profile]
   before_action :set_aide, only: [:show]
 
   def index

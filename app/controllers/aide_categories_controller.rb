@@ -1,5 +1,5 @@
 class AideCategoriesController < ApplicationController
-  before_action :authenticate_aide!
+  before_action :authorize!
   before_action :set_aide_category, only: [:edit, :update, :destroy]
 
   def new
@@ -35,6 +35,10 @@ class AideCategoriesController < ApplicationController
   end
 
   private
+
+  def authorize!
+    redirect_to root_path, notice: 'Restricted access' if !aide_signed_in?
+  end
 
   def set_aide_category
     @aide_category = AideCategory.find(params[:id])

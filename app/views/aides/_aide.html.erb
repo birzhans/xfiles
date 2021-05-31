@@ -8,17 +8,19 @@
 
     <div class="m-2">
       Categories:
-      <%= render aide.categories.uniq %>
+      <%= render 'aide_categories/categories', categories: aide.categories.uniq %>
     </div>
   </div>
 
   <div class='col-4 float-right'>
-    <%= link_to star_aide_clients_path(aide_id: aide.id),
-                class: "star-icon",
-                data: { id: aide.id  },
-                remote: true,
-                method: :post do %>
-      <i class="<%= heart_icon_class(aide) %>" id="star-<%= aide.id %>"></i>
+    <% if client_signed_in? %>
+      <%= link_to star_aide_clients_path(aide_id: aide.id),
+                  class: "star-icon",
+                  data: { id: aide.id  },
+                  remote: true,
+                  method: :post do %>
+        <i class="<%= heart_icon_class(aide) %>" id="star-<%= aide.id %>"></i>
+      <% end %>
     <% end %>
   </div>
 </div>

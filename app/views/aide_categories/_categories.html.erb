@@ -1,0 +1,3 @@
+<% categories.each do |category| %>
+  <%= link_to category.name, aides_path(category_id: category.id), class: 'btn category-link' %>
+<% end %>
