@@ -15,4 +15,12 @@ class User < ApplicationRecord
   has_many :received_conversations, class_name: 'Conversation', foreign_key: 'received_id'
 
   has_many :messages, dependent: :destroy
+
+  def client?
+    self.client != nil
+  end
+
+  def aide?
+    self.aide != nil
+  end
 end

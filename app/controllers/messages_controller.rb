@@ -1,20 +1,23 @@
 class MessagesController < ApplicationController
-  before_action :authenticate!
+  before_action :set_conversation
 
   def create
-    message = @current_user.messages.create(message_params)
+    @message = current_user.messages.build(message_params)
+    @message.conversation_id = @conversation.id
+    @message.save!
 
-    SendMessageJob.perform_later(message)
+    flash[:success] = "Your message was sent!"
+    redirect_to conversation_path(@conversation)
   end
 
   private
 
-  def authenticate!
-     :authenticate_client! || :authenticate_aide!
-     @current_user = client_signed_in? ? current_client : current_aide
+  def set_conversation
+    @conversation = Conversation.find_by(id: params[:conversation_id])
+    redirect_to(root_path) and return unless @conversation && @conversation.participates?(current_user)
   end
 
   def message_params
-    params.require(:message).permit(:content, :room_id)
+    params.require(:message).permit(:body)
   end
 end
