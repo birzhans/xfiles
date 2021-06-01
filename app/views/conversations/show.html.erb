@@ -2,14 +2,12 @@
 
 <div id="conversation-main">
   <div id="conversation-body">
-    <%= render @conversation.personal_messages %>
+    <%= render @conversation.messages %>
   </div>
 
   <%= form_for @message do |f| %>
     <%= hidden_field_tag 'conversation_id', @conversation.id %>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-
-    <%= f.submit %>
+    <%= f.text_field :body, placeholder: 'Message..', class: 'formc-control' %>
+    <%= f.submit 'Send', class: 'btn btn-primary' %>
   <% end %>
 </div>

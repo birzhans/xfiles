@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   resources :aides
 
   resources :conversations, only: [:index, :show]
-  resources :messages, only: [:create]
+  resources :messages, only: [:new, :create]
 
   get 'profile', to: 'users#profile'
-  post 'favourite_aide', to: 'aides#favourite_aide'
+
+  post 'favourite_aide', to: 'clients#favourite_aide'
+  get  'favourites',     to: 'clients#favourites'
 end

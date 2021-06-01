@@ -1,6 +1,6 @@
 <div class="mb-5">
   <%= link_to 'All aides', aides_path %>
-  <%= link_to 'Chat', conversations_path(aide_id: @aide.id), method: :post, class: 'btn btn-primary' %>
+  <%= link_to 'Chat', new_message_path(receiver_id: @aide.user.id), class: 'btn btn-primary' %>
 </div>
 
 <div class="row m-2">

@@ -1,4 +1,5 @@
 class AidesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_aide, only: [:show]
 
   def index
@@ -7,9 +8,6 @@ class AidesController < ApplicationController
   end
 
   def show
-  end
-
-  def profile
   end
 
   private

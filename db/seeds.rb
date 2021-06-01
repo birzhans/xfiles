@@ -36,6 +36,9 @@ end
     password: "c#{i}@a.a",
     password_confirmation: "c#{i}@a.a",
   )
+
+  user.client = Client.new
+  user.save
 end
 
 10.times do |i|

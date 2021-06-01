@@ -1,6 +1,13 @@
 a {
   text-decoration: none;
 }
+
+#conversation-body {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 2em;
+}
+
 .chat-room {
   overflow-y: scroll;
 

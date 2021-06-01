@@ -13,7 +13,7 @@
   </div>
 
   <div class='col-4 float-right'>
-    <% if current_user.client? %>
+    <% if current_user&.client? %>
       <%= link_to favourite_aide_path(aide_id: aide.id),
                   class: "star-icon",
                   data: { id: aide.id  },
