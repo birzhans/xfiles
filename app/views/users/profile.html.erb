@@ -1,4 +1,45 @@
-<p><%= current_user.email %></p>
+<h1 class="m-3">Profile path</h1>
 
+<div class="row m-2">
+  <div class="col-4">
+    <h6>name: <%= current_user.name %></h6>
+  </div>
 
-<!-- https://www.sitepoint.com/build-a-messaging-system-with-rails-and-actioncable/ -->
+  <div class="col-4">
+    <h6>username: <%= current_user.username %></h6>
+  </div>
+
+  <div class="col-4">
+    <h6>username: <%= current_user.username %></h6>
+  </div>
+</div><hr>
+
+<div class="row m-2">
+  <div class="col-4">
+    <h6>Phone: <%= current_user.phone %></h6>
+  </div>
+
+  <div class="col-4">
+    <h6>Phone: <%= current_user.phone %></h6>
+  </div>
+
+  <div class="col-4">
+    <h6>Phone: <%= current_user.phone %></h6>
+  </div>
+</div><hr>
+
+<div class="row m-2">
+  <div class="col-6">
+    <h3>Locations:</h3>
+    <%= render current_user.locations %>
+    <%= link_to 'Add location', new_location_path, class: 'btn btn-primary mt-2' %>
+  </div>
+
+  <% if current_user.aide? %>
+  <div class="col-6">
+    <h3>Categories:</h3>
+    <%= render current_user.aide.skills %>
+    <%= link_to 'Add category', new_skill_path, class: 'btn btn-primary mt-2' %>
+  </div>
+  <% end %>
+</div>

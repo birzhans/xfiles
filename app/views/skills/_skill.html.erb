@@ -1,0 +1,13 @@
+<div class="row mb-3">
+  <div class="col-6">
+    <%= link_to skill.category.name, aides_path(category_id: skill.category.id) %><br>
+    <%= skill.description %>
+  </div>
+
+  <div class="col-6">
+    <% if current_user.aide == skill.aide %>
+      <%= link_to 'Edit', edit_skill_path(skill), class: 'btn btn-info'  %>
+      <%= link_to 'Delete', skill_path(skill), class: 'btn btn-info', method: :delete %>
+    <% end %>
+  </div>
+</div>

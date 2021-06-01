@@ -1,44 +1,44 @@
 <div class="mb-5">
   <%= link_to 'All aides', aides_path %>
-  <%= link_to 'Chat', rooms_path(aide_id: @aide.id), method: :post, class: 'btn btn-primary' %>
+  <%= link_to 'Chat', conversations_path(aide_id: @aide.id), method: :post, class: 'btn btn-primary' %>
 </div>
 
 <div class="row m-2">
   <div class="col-4">
-    <h6>name: <%= @aide.name %></h6>
+    <h6>name: <%= @aide.user.name %></h6>
   </div>
 
   <div class="col-4">
-    <h6>username: <%= @aide.username %></h6>
+    <h6>username: <%= @aide.user.username %></h6>
   </div>
 
   <div class="col-4">
-    <h6>Link: <%= @aide.link %></h6>
+    <h6>username: <%= @aide.user.username %></h6>
   </div>
 </div><hr>
 
 <div class="row m-2">
   <div class="col-4">
-    <h6>Phone: <%= @aide.phone %></h6>
+    <h6>Phone: <%= @aide.user.phone %></h6>
   </div>
 
   <div class="col-4">
-    <h6>Phone: <%= @aide.phone %></h6>
+    <h6>Phone: <%= @aide.user.phone %></h6>
   </div>
 
   <div class="col-4">
-    <h6>Phone: <%= @aide.phone %></h6>
+    <h6>Phone: <%= @aide.user.phone %></h6>
   </div>
 </div><hr>
 
 <div class="row m-2">
   <div class="col-6">
     <h3>Locations:</h3>
-    <%= render @aide.locations %>
+    <%= render @aide.user.locations %>
   </div>
 
   <div class="col-6">
     <h3>Categories:</h3>
-    <%= render @aide.aide_categories %>
+    <%= render @aide.skills %>
   </div>
 </div>

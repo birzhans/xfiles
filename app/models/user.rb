@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :username, presence: true, uniqueness: true
+  validates :role, presence: true, inclusion: { in: [0, 1] }
 
   has_many :locations
   has_many :cities, through: :locations
@@ -16,11 +17,14 @@ class User < ApplicationRecord
 
   has_many :messages, dependent: :destroy
 
+  scope :clients, -> { where(role: 0) }
+  scope :aides, -> { where(role: 1) }
+
   def client?
-    self.client != nil
+    role == 0
   end
 
   def aide?
-    self.aide != nil
+    role == 1
   end
 end

@@ -7,6 +7,14 @@
               Xfiles
             </h3>
           </a>
+
+          <% if user_signed_in? %>
+            <% if current_user.client? %>
+              <%= render 'shared/nav_client_links' %>
+            <% elsif current_user.aide?  %>
+              <%= render 'shared/nav_aide_links' %>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>
