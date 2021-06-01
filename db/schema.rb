@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 2021_05_31_134441) do
     t.string "name", null: false
     t.string "username", null: false
     t.integer "role", null: false
+    t.string "link"
     t.string "phone"
     t.string "bio"
     t.datetime "created_at", precision: 6, null: false

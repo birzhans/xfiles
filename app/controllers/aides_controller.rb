@@ -2,7 +2,8 @@ class AidesController < ApplicationController
   before_action :set_aide, only: [:show]
 
   def index
-    @aides = Aide.all
+    @aides = Aide.filter(params.slice(:category, :city))
+    @category_option, @city_option = params[:category], params[:city]
   end
 
   def show
