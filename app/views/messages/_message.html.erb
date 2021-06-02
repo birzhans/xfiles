@@ -7,5 +7,5 @@
   <div class="text">
     <%= message.body %>
   </div>
-  <div class="time"><%= message_time(message) %></div>
+  <div class="time"><%= pretty_time(message.created_at) %></div>
 </div>

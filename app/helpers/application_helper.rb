@@ -17,8 +17,8 @@ module ApplicationHelper
     "answer #{message.user == current_user ? "right" : "left"}"
   end
 
-  def message_time(message)
-    message.created_at.to_s(:short)
+  def pretty_time(time)
+    time.to_s(:short)
   end
 
   def location_name(location)
