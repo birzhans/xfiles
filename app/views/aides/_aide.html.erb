@@ -1,20 +1,20 @@
 <div class="row m-1 shadow p-3 mb-3">
   <div class="col-8">
-    <%= link_to aide.name, aide %>
+    <%= link_to aide.user.name, aide %>
     <div class="m-2">
       Cities:
-      <%= render 'locations/cities', cities: aide.cities %>
+      <%= render 'locations/cities', cities: aide.user.cities %>
     </div>
 
     <div class="m-2">
       Categories:
-      <%= render 'aide_categories/categories', categories: aide.categories.uniq %>
+      <%= render 'skills/categories', categories: aide.categories.uniq %>
     </div>
   </div>
 
   <div class='col-4 float-right'>
-    <% if client_signed_in? %>
-      <%= link_to star_aide_clients_path(aide_id: aide.id),
+    <% if current_user&.client? %>
+      <%= link_to favourite_aide_path(aide_id: aide.id),
                   class: "star-icon",
                   data: { id: aide.id  },
                   remote: true,

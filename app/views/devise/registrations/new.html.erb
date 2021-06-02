@@ -7,6 +7,16 @@
       <%= devise_error_messages! %>
 
       <div class="form-group">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, class: 'form-control', required: true %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :username %><br />
+        <%= f.text_field :username, class: 'form-control', required: true %>
+      </div>
+
+      <div class="form-group">
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: false, class: 'form-control', required: true %>
       </div>
@@ -22,6 +32,20 @@
       <div class="form-group">
         <%= f.label :password_confirmation %><br />
         <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', required: true %>
+      </div><hr>
+
+      <div class="form-group m-2">
+        <h4>I want to be</h4>
+        <div class="row">
+          <div class="col-3">
+            <input type="radio" id="client" name="user[role]" value="0">
+            <label for="client" class="m-2">Client</label>
+          </div>
+          <div class="col-3">
+            <input type="radio" id="aide" name="user[role]" value="1">
+            <label for="aide" class="m-2">Aide</label>
+          </div>
+        </div>
       </div>
 
       <div class="form-group">

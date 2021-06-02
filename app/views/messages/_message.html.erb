@@ -1,10 +1,11 @@
-<div class="<%= message_content_class(message) %>">
-  <div class="content-container">
-    <div class="content">
-      <%= message.content %>
-    </div>
-    <div class="author">
-      <%= message.userable.username %>
-    </div>
+<div class="<%= message_side(message) %>">
+  <div class="avatar">
+    <%= fa_icon "user", class: "fa-2x" %>
+    <div class="status offline"></div>
   </div>
+  <div class="name"><%= message.user.username %></div>
+  <div class="text">
+    <%= message.body %>
+  </div>
+  <div class="time"><%= pretty_time(message.created_at) %></div>
 </div>

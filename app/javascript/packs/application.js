@@ -11,6 +11,7 @@ import 'bootstrap/dist/js/bootstrap'
 import "bootstrap/dist/css/bootstrap";
 import "@fortawesome/fontawesome-free/css/all"
 import './star.js'
+import './conversations.js'
 import '../stylesheets/application.scss'
 
 

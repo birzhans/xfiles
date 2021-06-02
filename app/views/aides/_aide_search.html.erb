@@ -6,9 +6,12 @@
 
     <div class="col-8">
       <%= select_tag(
-        :city_id,
-        options_for_select(['All'] + City.order(:name).pluck(:name, :id),
-        :selected => @option_city),
+        :city,
+        options_for_select(
+          City.order(:name).pluck(:name, :id),
+          selected: @city_option
+        ),
+        include_blank: true,
         class: "form-control custom-select"
         )
       %>
@@ -22,9 +25,12 @@
 
      <div class="col-6">
        <%= select_tag(
-         :category_id,
-         options_for_select(['All'] + Category.order(:name).pluck(:name, :id),
-         :selected => @option_category),
+         :category,
+         options_for_select(
+          Category.order(:name).pluck(:name, :id),
+          selected: @category_option
+         ),
+         include_blank: true,
          class: "form-control custom-select"
          )
        %>

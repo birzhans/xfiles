@@ -1,26 +1,19 @@
 Rails.application.routes.draw do
-  root 'aides#index'
+  root 'pages#home'
+  devise_for :users, controllers: { registrations: 'users/registrations' }
 
-  devise_for :aides, controllers: { registrations: 'aides/registrations' }
-  devise_for :clients, controllers: { registrations: 'clients/registrations' }
-
+  resources :users do
+    collection do
+      get 'profile'
+    end
+  end
   resources :locations
-  resources :aide_categories
+  resources :skills
+  resources :aides
 
-  resources :rooms
-  resources :messages
+  resources :conversations, only: [:index, :show]
+  resources :messages, only: [:new, :create]
 
-  resources :clients do
-    collection do
-      get 'profile'
-      get 'starred'
-      post 'star_aide'
-    end
-  end
-
-  resources :aides do
-    collection do
-      get 'profile'
-    end
-  end
+  post 'favourite_aide', to: 'clients#favourite_aide'
+  get  'favourites',     to: 'clients#favourites'
 end

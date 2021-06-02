@@ -1,0 +1,35 @@
+<div class="m-4 row">
+  <h3>Edit profile</h3>
+  <%= form_for current_user do |f| %>
+    <%= render "shared/errors", resource: current_user %>
+
+    <div class="col-4 form-group m-3">
+      <%= f.label :name, class: 'm-1' %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div class="col-4 form-group m-3">
+      <%= f.label :username, class: 'm-1' %>
+      <%= f.text_field :username, class: 'form-control' %>
+    </div>
+
+    <div class="col-4 form-group m-3">
+      <%= f.label :link, class: 'm-1' %>
+      <%= f.text_field :link, class: 'form-control' %>
+    </div>
+
+    <div class="col-4 form-group m-3">
+      <%= f.label :phone, class: 'm-1' %>
+      <%= f.text_field :phone, class: 'form-control' %>
+    </div>
+
+    <div class="col-4 form-group m-3">
+      <%= f.label :bio, class: 'm-1' %>
+      <%= f.text_field :bio, class: 'form-control' %>
+    </div>
+
+    <div class="col-4 form-group m-3">
+        <%= f.submit 'Save', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>

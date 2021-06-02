@@ -9,12 +9,16 @@ module ApplicationHelper
   end
 
   def heart_icon_class(aide)
-    starred_aide = StarredAide.find_by(client_id: current_client.id, aide_id: aide.id)
+    starred_aide = FavouriteAide.find_by(client_id: current_user.id, aide_id: aide.id)
     starred_aide == nil ? "far fa-star" : "fa fa-star"
   end
 
-  def message_content_class(message)
-    "message mb-2" + (message.userable == get_user ? " me" : "")
+  def message_side(message)
+    "answer #{message.user == current_user ? "right" : "left"}"
+  end
+
+  def pretty_time(time)
+    time.to_s(:short)
   end
 
   def location_name(location)
@@ -23,10 +27,6 @@ module ApplicationHelper
 
   def category_name(aide_category)
     aide_category.category.name + ',' + aide_category.description || '(No description)'
-  end
-
-  def get_user
-    client_signed_in? ? current_client : current_aide
   end
 
   def nice_param?(id)
