@@ -14,10 +14,10 @@ class SendMessageJob < ApplicationJob
     )
 
     ActionCable.server.broadcast(
-      "room_channel_#{message.room_id}",
+      "conversation_channel_#{message.conversation.id}",
       mine: mine,
       theirs: theirs,
-      user_id: message.userable.id
+      user_id: message.user.id
     )
   end
 end

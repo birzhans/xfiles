@@ -1,4 +1,11 @@
-<p><%= message.body %></p>
-<p>at <strong><%= message.created_at %></strong><br>
-  by <strong><%= message.user.name %></strong></p>
-<hr>
+<div class="<%= message_side(message) %>">
+  <div class="avatar">
+    <%= fa_icon "user", class: "fa-2x" %>
+    <div class="status offline"></div>
+  </div>
+  <div class="name"><%= message.user.username %></div>
+  <div class="text">
+    <%= message.body %>
+  </div>
+  <div class="time"><%= message_time(message) %></div>
+</div>

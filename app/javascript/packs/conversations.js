@@ -1,5 +1,6 @@
 document.addEventListener("turbolinks:load", () => {
-  messages = $('#conversation-body');
+  messages = $(".chat");
+  messages.niceScroll();
+  if (messages.length > 0) messages.scrollTop(messages.prop("scrollHeight") + 300);
 
-  if (messages.length > 0) messages.scrollTop(messages.prop("scrollHeight"));
 })
