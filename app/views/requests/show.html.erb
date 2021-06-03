@@ -1,0 +1,19 @@
+<div class="row m-2 p-2">
+  <div class="col-4">
+    <% if current_user.aide? %>
+      <p><%= "Client: #{@request.client.username}" %></p>
+    <% else %>
+      <p><%= "Aide: #{@request.aide.username}" %></p>
+    <% end %>
+
+    <p>Created at: <%= pretty_time @request.created_at %></p>
+  </div>
+
+  <div class="col-4">
+    <b>Details:</b> <%= @request.details %><br>
+  </div>
+
+  <div class="col-4">
+    <%= render 'request_links', request: @request %>
+  </div>
+</div><hr>

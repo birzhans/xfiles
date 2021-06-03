@@ -14,4 +14,12 @@ class Request < ApplicationRecord
   def pending?
     status == 'Pending'
   end
+
+  def in_process?
+    status == 'In process'
+  end
+
+  def conversation
+    Conversation.between(aide.user.id, client.user.id)[0]
+  end
 end

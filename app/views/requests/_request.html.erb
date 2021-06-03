@@ -14,8 +14,6 @@
   </div>
 
   <div class="col-4">
-    <% if current_user.aide? && request.pending? %>
-      <%= link_to 'Accept', request_accept_path(request), class: 'btn btn-primary' %>
-    <% end %>
+    <%= render 'request_links', request: request %>
   </div>
 </div><hr>

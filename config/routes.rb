@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   end
 
   resources :requests do
-    get 'accept'
+    member do
+      get 'change_status'
+    end
   end
   resources :locations
   resources :skills

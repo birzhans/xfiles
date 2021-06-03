@@ -1,0 +1,12 @@
+<% if current_user.aide? %>
+  <% if request.pending? %>
+    <%= link_to 'Accept', change_status_request_path(request, status: 1), class: 'btn btn-primary m-2' %>
+    <%= link_to 'Decline', change_status_request_path(request, status: 3), class: 'btn btn-danger m-2' %>
+  <% elsif request.in_process? %>
+    <%= link_to 'Complete', change_status_request_path(request, status: 2), class: 'btn btn-primary m-2' %>
+  <% end %>
+<% end %>
+
+<% reciever_id = current_user == request.client.user ? request.aide.user.id : request.client.user.id %>
+<%= link_to 'Show', request_path(request), class: 'btn btn-primary m-2' %>
+<%= link_to 'Chat', conversation_path(id: 'a', receiver_id: reciever_id), class: 'btn btn-primary m-2' %>

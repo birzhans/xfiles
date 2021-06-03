@@ -1,6 +1,8 @@
 class RequestsController < ApplicationController
+  before_action :set_request, only: [:show, :change_status]
   before_action :authorize_client!, only: [:new, :create]
-  before_action :set_request, only: [:accept]
+  before_action :authorize_aide!, only: [:change_status]
+
   def index
     requestable = current_user.client? ? current_user.client : current_user.aide
     @requests = Request.participating(requestable).order('updated_at DESC')
@@ -8,6 +10,9 @@ class RequestsController < ApplicationController
     @in_process = @requests.where(status: 1)
     @done = @requests.where(status: 2)
     @declined = @requests.where(status: 3)
+  end
+
+  def show
   end
 
   def new
@@ -25,8 +30,8 @@ class RequestsController < ApplicationController
     end
   end
 
-  def accept
-    @request.update(status: 1)
+  def change_status
+    @request.update(status: params[:status].to_i)
     redirect_to requests_path
   end
 
@@ -37,10 +42,14 @@ class RequestsController < ApplicationController
   end
 
   def set_request
-    @request = Request.find(params[:request_id])
+    @request = Request.find(params[:id])
   end
 
   def authorize_client!
     redirect_to aides_path, alert: 'Restricted access' unless current_user.client?
+  end
+
+  def authorize_aide!
+    redirect_to aides_path, alert: 'Restricted access' unless current_user.aide?
   end
 end
