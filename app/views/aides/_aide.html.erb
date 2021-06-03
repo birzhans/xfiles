@@ -1,6 +1,8 @@
 <div class="row m-1 shadow p-3 mb-3">
   <div class="col-8">
     <%= link_to aide.user.name, aide %>
+    <p>Rating: <%= aide.rating %></p>
+
     <div class="m-2">
       Cities:
       <%= render 'locations/cities', cities: aide.user.cities %>

@@ -5,6 +5,11 @@
   <% elsif request.in_process? %>
     <%= link_to 'Complete', change_status_request_path(request, status: 2), class: 'btn btn-primary m-2' %>
   <% end %>
+
+<% else %>
+  <% if request.pending? %>
+    <%= link_to 'Delete', request_path(request), method: :delete, class: 'btn btn-danger m-2' %>
+  <% end %>
 <% end %>
 
 <% reciever_id = current_user == request.client.user ? request.aide.user.id : request.client.user.id %>

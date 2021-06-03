@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-  before_action :set_request, only: [:show, :change_status]
+  before_action :set_request, only: [:show, :change_status, :destroy]
   before_action :authorize_client!, only: [:new, :create]
   before_action :authorize_aide!, only: [:change_status]
 
@@ -33,6 +33,11 @@ class RequestsController < ApplicationController
   def change_status
     @request.update(status: params[:status].to_i)
     redirect_to requests_path
+  end
+
+  def destroy
+    @request.destroy
+    redirect_to requests_path, notice: 'Request was successfully deleted'
   end
 
   private

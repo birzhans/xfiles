@@ -9,4 +9,8 @@ class Client < ApplicationRecord
   def username
     user.username
   end
+
+  def can_rate?
+    
+  end
 end
