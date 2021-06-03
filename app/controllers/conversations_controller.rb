@@ -27,9 +27,12 @@ class ConversationsController < ApplicationController
       @receiver = User.find_by(id: params[:receiver_id])
       redirect_to(root_path) and return unless @receiver
       @conversation = Conversation.between(current_user.id, @receiver.id)[0]
+
+      unless @conversation
+        @conversation = Conversation.create(author_id: current_user.id, receiver_id: @receiver.id)
+      end
     else
       @conversation = Conversation.find(params[:id])
-      redirect_to(root_path) and return unless @conversation && @conversation.participates?(current_user)
     end
   end
 
