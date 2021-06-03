@@ -1,26 +1,30 @@
 <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
   <li>
-    <a href="/aides" class="nav-link text-white">
-      <div class="row justify-content-center">
-        <%= fa_stacked_icon "dashboard", base: "square-o" %>
-        Helpers
-      </div>
+    <a href="/requests" class="nav-link text-white">
+      <%= fa_stacked_icon "hands-helping", base: "square-o" %><br>
+      Requests
     </a>
   </li>
+
+  <li>
+    <a href="/aides" class="nav-link text-white">
+      <%= fa_stacked_icon "user", base: "square-o" %><br>
+      Helpers
+    </a>
+  </li>
+
   <li>
     <a href="#" class="nav-link text-white">
-      <div class="row justify-content-center">
-        <%= fa_stacked_icon "bell", base: "square-o" %>
-        Notifications
-      </div>
+      <%= fa_stacked_icon "bell", base: "square-o" %><br>
+      Notifications
     </a>
   </li>
+  
   <li>
-    <a href='/rooms' class="nav-link text-white">
-      <div class="row justify-content-center">
-        <%= fa_stacked_icon "envelope", base: "square-o" %>
-        Messages
-      </div>
+    <a href='/conversations' class="nav-link text-white">
+      <%= fa_stacked_icon "envelope", base: "square-o" %><br>
+      Messages
     </a>
   </li>
+</ul>
 </ul>

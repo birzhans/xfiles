@@ -7,6 +7,10 @@ Rails.application.routes.draw do
       get 'profile'
     end
   end
+
+  resources :requests do
+    get 'accept'
+  end
   resources :locations
   resources :skills
   resources :aides

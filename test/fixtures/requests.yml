@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  aide: one
+  client: one
+  status: 1
+  details: MyString
+
+two:
+  aide: two
+  client: two
+  status: 1
+  details: MyString

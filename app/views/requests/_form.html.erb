@@ -1,0 +1,14 @@
+<%= form_for request do |f| %>
+  <%= render "shared/errors", resource: request %>
+
+  <%= f.hidden_field :aide_id, value: request.aide_id %>
+
+  <div class="form-group m-2 col-6">
+    <%= f.text_area :details, class: 'form-control' %>
+  </div>
+
+  <div class="form-group m-2">
+    <%= f.submit 'Send', class: 'btn btn-primary' %>
+  </div>
+
+<% end %>

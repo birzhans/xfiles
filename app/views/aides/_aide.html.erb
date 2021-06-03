@@ -15,12 +15,15 @@
   <div class='col-4 float-right'>
     <% if current_user&.client? %>
       <%= link_to favourite_aide_path(aide_id: aide.id),
-                  class: "star-icon",
+                  class: "star-icon m-2",
                   data: { id: aide.id  },
                   remote: true,
                   method: :post do %>
         <i class="<%= heart_icon_class(aide) %>" id="star-<%= aide.id %>"></i>
       <% end %>
+
+
+      <%= link_to 'Send request', new_request_path(aide_id: aide.id), class: 'btn btn-primary m-2' %>
     <% end %>
   </div>
 </div>
