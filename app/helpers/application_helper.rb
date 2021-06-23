@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def heart_icon_class(aide)
-    starred_aide = FavouriteAide.find_by(client_id: current_user.id, aide_id: aide.id)
+    starred_aide = FavouriteAide.find_by(client_id: current_user.client.id, aide_id: aide.id)
     starred_aide == nil ? "far fa-star" : "fa fa-star"
   end
 

@@ -11,7 +11,7 @@ class ClientsController < ApplicationController
     if favourite_aide
       favourite_aide.destroy
     else
-      FavouriteAide.create(client_id: current_user.id, aide_id: params[:aide_id])
+      FavouriteAide.create(client_id: current_user.client.id, aide_id: params[:aide_id])
     end
   end
 

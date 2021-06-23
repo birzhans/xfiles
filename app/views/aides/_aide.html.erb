@@ -5,7 +5,7 @@
 
     <div class="m-2">
       Cities:
-      <%= render 'locations/cities', cities: aide.user.cities %>
+      <%= render 'locations/cities', cities: aide.user.cities.uniq %>
     </div>
 
     <div class="m-2">
